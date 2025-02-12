@@ -1,0 +1,30 @@
+import 'dart:async';
+import 'dart:ui';
+
+import 'package:flame/components.dart';
+
+class Dash extends PositionComponent {
+  Dash()
+      : super(
+          position: Vector2(0, 0),
+          size: Vector2.all(120),
+          anchor: Anchor.center,
+        );
+
+  late Sprite _dashSprite;
+
+  @override
+  Future<void> onLoad() async {
+    // TODO: implement onLoad
+    super.onLoad();
+    // debugMode = true;
+    _dashSprite = await Sprite.load('dash.png');
+  }
+
+  @override
+  void render(Canvas canvas) {
+    // TODO: implement render
+    super.render(canvas);
+    _dashSprite.render(canvas, size: size);
+  }
+}
